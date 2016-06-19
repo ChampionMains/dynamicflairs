@@ -1,4 +1,4 @@
 #jekyll config
 sass:
   sass_dir: ./
-  style: compact
+  style: compressed
