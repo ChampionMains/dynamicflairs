@@ -1,3 +1,15 @@
+---
+flairs: 21
+masteries: 7
+ranks:
+  - bronze
+  - silver
+  - gold
+  - platinum
+  - diamond
+  - master
+  - challenger
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,8 +18,9 @@
   <title>dynamicflair test page</title>
   <!--<meta name="description" content="The HTML5 Herald">-->
   <!--<meta name="author" content="SitePoint">-->
-
+  
   <style>
+    /* reddit styles */
     .flair {
       font-family: "Roboto",Helvetica,Arial,"Lucida Grande",sans-serif;
       font-size: 12px;
@@ -15,83 +28,76 @@
       box-sizing: border-box;
     }
     
-    .flair {
-      padding: 0px;
-      margin: 0;
-      line-height: 25px;
-      vertical-align: middle;
-      text-align: right;
-      color: #FFF;
-      background: url(flairs.png) top left no-repeat #000;
-      padding-right: 10px;
-      position: relative;
-      z-index: 10;
-      opacity: 0.7;
-      min-width:50px;
-      overflow: hidden;
-      margin-right: 3px;
-      text-indent: 60px;
-      border: 1px solid #000;
-      border-radius: 2px;
-      -webkit-transition: all 0.3s;
-      -moz-transition: all 0.3s;
-      -ms-transition: all 0.3s;
-      -o-transition: all 0.3s;
-      transition: all 0.3s;
-      
-      width: 50px;
-      height: 25px;
+    thead th {
+      width: 150px;
     }
-    
-    .flair:hover {
-      opacity: 1.0;
-      width: auto !important;
-      min-width: 50px;
-      -webkit-transition: all 0.3s;
-      -moz-transition: all 0.3s;
-      -ms-transition: all 0.3s;
-      -o-transition: all 0.3s;
-      transition: all 0.3s; 
+    table {
+      table-layout: fixed;
+      width: 0; /* expands anyway */
     }
-    
-    .flair[class*="flair-rank-"] {
-      width: 75px;
-      text-indent: 50px;
-    }
-    .flair[class*="flair-rank-"]::before {
-      content: "";
-      display: inline-block;
-      vertical-align: middle;
-      
-      width: 25px;
-      height: 25px;
-      margin-right: 8px;
-      
-      position: relative;
-      top: -1px;
-      
-      background-image: url(ranks.png);
-    }
-    
-    .flair.flair-rank-gold::before {
-      background-position: 0 -100px;
-    }
-    
-    .flair-wf {
-      background-position: 0 -150px;
-    }
-    
   </style>
+  <link rel="stylesheet" href="compile.css">
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 </head>
 
 <body>
-  <span class="flair">Flair Text</span>
-  <br>
-  <span class="flair flair-wf">Flair Text</span>
-  <br>
-  <span class="flair flair-wf flair-rank-gold">Flair Text</span>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        {% for i in (1..page.flairs) %}
+          <th>flair-{{ i }}</th>
+        {% endfor  %}
+      </tr>
+    </thead>
+    <tbody>
+      <!-- NORMAL -->
+      <tr>
+        <th>none</th>
+        {% for i in (1..page.flairs) %}
+          <td>
+            <span class="flair flair-{{ i }}">{{ i }}</span>
+          </td>
+        {% endfor %}
+      </tr>
+      <!-- RANK -->
+      {% for rank in page.ranks %}
+        <tr>
+          <th>r{{ rank | upcase }}</th>
+          {% for i in (1..page.flairs) %}
+            <td>
+              <span class="flair flair-{{ i }} flair-rank-{{ rank }}">{{ i }}r{{ rank | upcase }}</span>
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+      <!-- MASTERY -->
+      {% for mastery in (1..page.masteries) %}
+        <tr>
+          <th>m{{ mastery }}</th>
+          {% for i in (1..page.flairs) %}
+            <td>
+              <span class="flair flair-{{ i }} flair-mastery-{{ mastery }}">{{ i }}m{{ mastery }}</span>
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+      <!-- MASTERY AND RANK -->
+      {% for rank in page.ranks %}
+        {% for mastery in (1..page.masteries) %}
+          <tr>
+            <th>r{{ rank | upcase }}m{{ mastery }}</th>
+            {% for i in (1..page.flairs) %}
+              <td>
+                <span class="flair flair-{{ i }} flair-rank-{{ rank }} flair-mastery-{{ mastery }}">{{ i }}r{{ rank | upcase }}m{{ mastery }}</span>
+              </td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      {% endfor %}
+    </tbody>
+  </table>
 </body>
 </html>
