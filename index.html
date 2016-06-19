@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>dynamicflair test page</title>
+  <!--<meta name="description" content="The HTML5 Herald">-->
+  <!--<meta name="author" content="SitePoint">-->
+
+  <style>
+    .flair {
+      font-family: "Roboto",Helvetica,Arial,"Lucida Grande",sans-serif;
+      font-size: 12px;
+      display: inline-block;
+      box-sizing: border-box;
+    }
+    
+    .flair {
+      padding: 0px;
+      margin: 0;
+      line-height: 25px;
+      vertical-align: middle;
+      text-align: right;
+      color: #FFF;
+      background: url(flairs.png) top left no-repeat #000;
+      padding-right: 10px;
+      position: relative;
+      z-index: 10;
+      opacity: 0.7;
+      min-width:50px;
+      overflow: hidden;
+      margin-right: 3px;
+      text-indent: 60px;
+      border: 1px solid #000;
+      border-radius: 2px;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      -ms-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s;
+      
+      width: 50px;
+      height: 25px;
+    }
+    
+    .flair:hover {
+      opacity: 1.0;
+      width: auto !important;
+      min-width: 50px;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      -ms-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s; 
+    }
+    
+    .flair[class*="flair-rank-"] {
+      width: 75px;
+      text-indent: 50px;
+    }
+    .flair[class*="flair-rank-"]::before {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      
+      width: 25px;
+      height: 25px;
+      margin-right: 8px;
+      
+      position: relative;
+      top: -1px;
+      
+      background-image: url(ranks.png);
+    }
+    
+    .flair.flair-rank-gold::before {
+      background-position: 0 -100px;
+    }
+    
+    .flair-wf {
+      background-position: 0 -150px;
+    }
+    
+  </style>
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <span class="flair">Flair Text</span>
+  <br>
+  <span class="flair flair-wf">Flair Text</span>
+  <br>
+  <span class="flair flair-wf flair-rank-gold">Flair Text</span>
+</body>
+</html>
