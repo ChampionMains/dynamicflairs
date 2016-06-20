@@ -2,7 +2,6 @@
   padding: 0 10px 0 0;
   margin: 0 10px 0 0;
   vertical-align: middle;
-  text-align: right;
   color: #FFF;
   background: url($flairs) top left no-repeat #000;
   position: relative;
@@ -23,19 +22,20 @@
   transition: all 0.3s;
 
   min-width: 52px;
-  width: 52px;
+  max-width: 52px;
   text-indent: 60px;
 }
 
 .flair:hover {
   opacity: 1.0;
+  max-width: 800px !important;
   width: auto !important;
 }
 
 // rank xor mastery
 .flair[class*="flair-rank-"], .flair[class*="flair-mastery-"] {
   min-width: 77px;
-  width: 77px;
+  max-width: 77px;
   text-indent: 85px;
 }
 
@@ -61,7 +61,7 @@
 // rank and mastery
 .flair[class*="flair-rank-"][class*="flair-mastery-"] {
   min-width: 102px;
-  width: 102px;
+  max-width: 102px;
   text-indent: 110px;
 }
 .flair[class*="flair-rank-"][class*="flair-mastery-"]::after {
