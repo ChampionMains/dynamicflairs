@@ -3,4 +3,4 @@
 $flairs: '%%flairs%%';
 $ranks: '%%ranks%%';
 $masteries: '%%masteries%%';
-@import 'styles';
+@import '{{ page.path | split:"/" | first }}/styles';

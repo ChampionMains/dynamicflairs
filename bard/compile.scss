@@ -3,4 +3,4 @@
 $flairs: 'flairs.png';
 $ranks: 'ranks.png';
 $masteries: 'masteries.png';
-@import 'styles';
+@import '{{ page.path | split:"/" | first }}/styles';
