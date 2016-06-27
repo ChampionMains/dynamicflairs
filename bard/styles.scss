@@ -78,7 +78,7 @@ $pad: 10px;
 //  left: $size * 3;
 //}
 
-$ranks: unranked bronze 'silver' 'gold' platinum diamond master challenger;
+$ranks: bronze challenger diamond 'gold' master platinum 'silver';
 $masteries: 7;
 @for $i from 1 through 30 {
   %t-#{$i} { background-position: 0 (-100% * ($i - 1)) !important; }
