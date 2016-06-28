@@ -63,6 +63,17 @@ text: true
           </td>
         {% endfor %}
       </tr>
+      <!-- PRESTIGE -->
+      {% for prestige in (1..page.prestiges) %}
+        <tr>
+          <th>p{{ prestige }}</th>
+          {% for i in (1..page.flairs) %}
+            <td>
+              <span class="flair flair-{{ i }} flair-prestige-{{ prestige }}">{% if page.text %}{{ i }}p{{ prestige }}{% endif %}</span>
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
       <!-- RANK -->
       {% for rank in page.ranks %}
         <tr>
@@ -73,6 +84,16 @@ text: true
             </td>
           {% endfor %}
         </tr>
+        {% for prestige in (1..page.prestiges) %}
+          <tr>
+            <th>r{{ rank | upcase }}p{{prestige}}</th>
+            {% for i in (1..page.flairs) %}
+              <td>
+                <span class="flair flair-{{ i }} flair-rank-{{ rank }} flair-prestige-{{ prestige }}">{% if page.text %}{{ i }}r{{ rank | upcase }}p{{ prestige }}{% endif %}</span>
+              </td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
       {% endfor %}
       <!-- MASTERY -->
       {% for mastery in (1..page.masteries) %}
@@ -85,6 +106,7 @@ text: true
           {% endfor %}
         </tr>
         {% if mastery >= 5 %}
+          <!-- PRESTIGE -->
           {% for prestige in (1..page.prestiges) %}
             <tr>
               <th>m{{ mastery }}p{{prestige}}</th>
@@ -111,6 +133,7 @@ text: true
             {% endfor %}
           </tr>
           {% if mastery >= 5 %}
+            <!-- PRESTIGE -->
             {% for prestige in (1..page.prestiges) %}
               <tr>
                 <th>r{{ rank | upcase }}m{{ mastery }}p{{prestige}}</th>

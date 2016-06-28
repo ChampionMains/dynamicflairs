@@ -41,8 +41,8 @@ $pad: 10px;
   width: auto !important;
 }
 
-// rank xor mastery
-.flair[class*="flair-rank-"], .flair[class*="flair-mastery-"] {
+// rank xor mastery xor prestige
+.flair[class*="flair-rank-"], .flair[class*="flair-mastery-"], .flair[class*="flair-prestige-"] {
   min-width: $size * 3 - $pad;
   width: $size * 3 - $pad;
   text-indent: $size * 3 + $pad;
@@ -67,16 +67,22 @@ $pad: 10px;
   @extend %flair-pseudoelement;
   background-image: url($masteries);
 }
+.flair[class*="flair-prestige-"]::after {
+  @extend %flair-pseudoelement;
+}
 
 // rank and mastery or
-// mastery and prestige
+// mastery and prestige or
+// rank and prestige
 .flair[class*="flair-rank-"][class*="flair-mastery-"],
-.flair[class*="flair-mastery-"][class*="flair-prestige-"]{
+.flair[class*="flair-mastery-"][class*="flair-prestige-"],
+.flair[class*="flair-rank-"][class*="flair-prestige-"] {
   min-width: $size * 4 - $pad;
   width: $size * 4 - $pad;
   text-indent: $size * 4 + $pad;
 }
-.flair[class*="flair-rank-"][class*="flair-mastery-"]::after {
+.flair[class*="flair-rank-"][class*="flair-mastery-"]::after,
+.flair[class*="flair-rank-"][class*="flair-prestige-"]::after {
   left: $size * 3;
 }
 
@@ -88,13 +94,26 @@ $pad: 10px;
 }
 
 // prestige
+.flair[class*="flair-prestige-"]::after {
+  color: #fd0;
+  text-align: center;
+  text-indent: 0;
+  width: $size;
+}
+.flair[class*="flair-prestige-"][class*="flair-mastery-"]::after {
+  text-indent: $size;
+  width: $size * 2;
+}
+
 @for $i from 1 through 10 {
-  .flair-prestige-#{$i}.flair[class*="flair-mastery-"]::after {
-    content: if($i >= 10, ($i / 10) + 'M', $i + '00');
-    color: #fd0;
-    text-indent: 25px;
-    text-align: center;
-    width: $size * 2;
+  .flair.flair-prestige-#{$i}::after {
+    @if ($i >= 10) {
+      content: ($i / 10) + 'M';
+      font-size: 1.2em;
+    }
+    @else {
+      content: $i + '00';
+    }
   }
 }
 
