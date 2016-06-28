@@ -1,6 +1,7 @@
 ---
 flairs: 21
 masteries: 7
+prestiges: 10
 ranks:
   - unranked
   - bronze
@@ -83,6 +84,20 @@ text: true
             </td>
           {% endfor %}
         </tr>
+        {% if mastery >= 5 %}
+          {% for prestige in (1..page.prestiges) %}
+            <tr>
+              <th>m{{ mastery }}p{{prestige}}</th>
+              {% for i in (1..page.flairs) %}
+                <td>
+                  <span class="flair flair-{{ i }} flair-mastery-{{ mastery }} flair-prestige-{{ prestige }}">
+                    {% if page.text %}{{ i }}m{{ mastery }}p{{ prestige }}{% endif %}
+                  </span>
+                </td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        {% endif %}
       {% endfor %}
       <!-- MASTERY AND RANK -->
       {% for rank in page.ranks %}
@@ -95,6 +110,20 @@ text: true
               </td>
             {% endfor %}
           </tr>
+          {% if mastery >= 5 %}
+            {% for prestige in (1..page.prestiges) %}
+              <tr>
+                <th>r{{ rank | upcase }}m{{ mastery }}p{{prestige}}</th>
+                {% for i in (1..page.flairs) %}
+                  <td>
+                    <span class="flair flair-{{ i }} flair-rank-{{ rank }} flair-mastery-{{ mastery }} flair-prestige-{{ prestige }}">
+                      {% if page.text %}{{ i }}r{{ rank | upcase }}m{{ mastery }}p{{ prestige }}{% endif %}
+                    </span>
+                  </td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          {% endif %}
         {% endfor %}
       {% endfor %}
     </tbody>
