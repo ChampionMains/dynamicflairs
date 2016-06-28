@@ -1,7 +1,11 @@
 ---
 flairs: 21
 masteries: 7
-prestiges: 10
+prestiges:
+  - 250
+  - 500
+  - 750
+  - 1M
 ranks:
   - unranked
   - bronze
@@ -28,7 +32,7 @@ text: true
     }
     
     thead th {
-      width: 150px;
+      width: 200px;
     }
     table {
       table-layout: fixed;
@@ -64,7 +68,7 @@ text: true
         {% endfor %}
       </tr>
       <!-- PRESTIGE -->
-      {% for prestige in (1..page.prestiges) %}
+      {% for prestige in page.prestiges %}
         <tr>
           <th>p{{ prestige }}</th>
           {% for i in (1..page.flairs) %}
@@ -84,7 +88,7 @@ text: true
             </td>
           {% endfor %}
         </tr>
-        {% for prestige in (1..page.prestiges) %}
+        {% for prestige in page.prestiges %}
           <tr>
             <th>r{{ rank | upcase }}p{{prestige}}</th>
             {% for i in (1..page.flairs) %}
@@ -107,7 +111,7 @@ text: true
         </tr>
         {% if mastery >= 5 %}
           <!-- PRESTIGE -->
-          {% for prestige in (1..page.prestiges) %}
+          {% for prestige in page.prestiges %}
             <tr>
               <th>m{{ mastery }}p{{prestige}}</th>
               {% for i in (1..page.flairs) %}
@@ -134,7 +138,7 @@ text: true
           </tr>
           {% if mastery >= 5 %}
             <!-- PRESTIGE -->
-            {% for prestige in (1..page.prestiges) %}
+            {% for prestige in page.prestiges %}
               <tr>
                 <th>r{{ rank | upcase }}m{{ mastery }}p{{prestige}}</th>
                 {% for i in (1..page.flairs) %}

@@ -105,15 +105,10 @@ $pad: 10px;
   width: $size * 2;
 }
 
-@for $i from 1 through 10 {
-  .flair.flair-prestige-#{$i}::after {
-    @if ($i >= 10) {
-      content: ($i / 10) + 'M';
-      font-size: 1.2em;
-    }
-    @else {
-      content: $i + '00';
-    }
+$prestiges: 250 500 750 1M;
+@each $prestige in $prestiges {
+  .flair.flair-prestige-#{$prestige}::after {
+    content: "" + $prestige;
   }
 }
 
