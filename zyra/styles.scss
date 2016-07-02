@@ -108,7 +108,7 @@ $pad: 10px;
 $prestiges: 250 500 750 1000;
 @each $prestige in $prestiges {
   .flair.flair-prestige-#{$prestige}::after {
-    content: '' + if($prestige == 1000), '1M', $prestige);
+    content: '' + if($prestige == 1000, '1M', $prestige);
   }
 }
 
