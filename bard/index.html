@@ -27,7 +27,7 @@ text: true
     }
     
     thead th {
-      width: 150px;
+      width: 200px;
     }
     table {
       table-layout: fixed;
@@ -48,7 +48,7 @@ text: true
       <tr>
         <th></th>
         {% for i in (1..page.flairs) %}
-          <th>flair-{{ i }}</th>
+          <th>{{ i }}</th>
         {% endfor  %}
       </tr>
     </thead>
@@ -65,10 +65,10 @@ text: true
       <!-- RANK -->
       {% for rank in page.ranks %}
         <tr>
-          <th>r{{ rank | upcase }}</th>
+          <th>rank-{{ rank }}</th>
           {% for i in (1..page.flairs) %}
             <td>
-              <span class="flair flair-{{ i }} flair-rank-{{ rank }}">{% if page.text %}{{ i }}r{{ rank | upcase }}{% endif %}</span>
+              <span class="flair flair-{{ i }} flair-rank-{{ rank }}">{% if page.text %}{{ i }} rank-{{ rank }}{% endif %}</span>
             </td>
           {% endfor %}
         </tr>
@@ -76,10 +76,10 @@ text: true
       <!-- MASTERY -->
       {% for mastery in (1..page.masteries) %}
         <tr>
-          <th>m{{ mastery }}</th>
+          <th>mastery-{{ mastery }}</th>
           {% for i in (1..page.flairs) %}
             <td>
-              <span class="flair flair-{{ i }} flair-mastery-{{ mastery }}">{% if page.text %}{{ i }}m{{ mastery }}{% endif %}</span>
+              <span class="flair flair-{{ i }} flair-mastery-{{ mastery }}">{% if page.text %}{{ i }} mastery-{{ mastery }}{% endif %}</span>
             </td>
           {% endfor %}
         </tr>
@@ -88,10 +88,10 @@ text: true
       {% for rank in page.ranks %}
         {% for mastery in (1..page.masteries) %}
           <tr>
-            <th>r{{ rank | upcase }}m{{ mastery }}</th>
+            <th>rank-{{ rank }} mastery-{{ mastery }}</th>
             {% for i in (1..page.flairs) %}
               <td>
-                <span class="flair flair-{{ i }} flair-rank-{{ rank }} flair-mastery-{{ mastery }}">{% if page.text %}{{ i }}r{{ rank | upcase }}m{{ mastery }}{% endif %}</span>
+                <span class="flair flair-{{ i }} flair-rank-{{ rank }} flair-mastery-{{ mastery }}">{% if page.text %}{{ i }} rank-{{ rank }} mastery-{{ mastery }}{% endif %}</span>
               </td>
             {% endfor %}
           </tr>
