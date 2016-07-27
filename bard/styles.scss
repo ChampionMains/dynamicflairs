@@ -45,7 +45,7 @@ $pad: 10px;
 %flair-pseudoelement {
   content: "";
   display: block;
-    background: 0px #{$size}/100% repeat-y;
+    background: 0 100%/100% repeat-y;
   
   position: absolute;
   top: 0;
