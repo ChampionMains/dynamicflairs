@@ -1,13 +1,6 @@
 $size: 25px;
 $pad: 10px;
 
-//@mixin flair-background($background) {
-//  background: -webkit-linear-gradient(left, red , yellow); /* For Safari 5.1 to 6.0 */
-//  background: -o-linear-gradient(right, red, yellow); /* For Opera 11.1 to 12.0 */
-//  background: -moz-linear-gradient(right, red, yellow); /* For Firefox 3.6 to 15 */
-//  background: linear-gradient(to right, red , yellow); /* Standard syntax */
-//}
-
 .flair {
   white-space: nowrap;
   padding: 0 $pad 0 0;
@@ -52,7 +45,7 @@ $pad: 10px;
 %flair-pseudoelement {
   content: "";
   display: block;
-  background: 99px 0/100% repeat-y;
+    background: 0px #{$size}/100% repeat-y;
   
   position: absolute;
   top: 0;
@@ -60,32 +53,22 @@ $pad: 10px;
   width: $size;
   height: $size;
 }
-.flair[class*="flair-rank-"]::before {
+.flair[class*="flair-rank-"]::after {
   @extend %flair-pseudoelement;
   background-image: url($ranks);
 }
-.flair[class*="flair-mastery-"]::after {
+.flair[class*="flair-mastery-"]::before, .flair[class*="flair-rank-"]::before {
   @extend %flair-pseudoelement;
   background-image: url($masteries);
 }
 
-//// rank and mastery
-//.flair[class*="flair-rank-"][class*="flair-mastery-"] {
-//  min-width: $size * 4 - $pad;
-//  width: $size * 4 - $pad;
-//  text-indent: $size * 4 + $pad;
-//}
-//.flair[class*="flair-rank-"][class*="flair-mastery-"]::after {
-//  left: $size * 3;
-//}
-
-$ranks: bronze challenger diamond 'gold' master platinum 'silver';
+$ranks: bronze challenger diamond 'gold' master platinum 'silver' unranked;
 $masteries: 7;
 @for $i from 1 through 30 {
   %t-#{$i} { background-position: 0 (-100% * ($i - 1)) !important; }
   .flair-#{$i} { @extend %t-#{$i}; }
   @if $i <= length($ranks)  {
     $rank: nth($ranks, $i);
-    .flair-rank-#{$rank}::before { @extend %t-#{$i}; }}
-  @if $i <= $masteries { .flair-mastery-#{$i}::after { @extend %t-#{$i}; }}
+    .flair-rank-#{$rank}::after { @extend %t-#{$i}; }}
+  @if $i <= $masteries { .flair-mastery-#{$i}::before { @extend %t-#{$i}; }}
 }
