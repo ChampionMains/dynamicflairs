@@ -1,13 +1,6 @@
 $size: 25px;
 $pad: 10px;
 
-//@mixin flair-background($background) {
-//  background: -webkit-linear-gradient(left, red , yellow); /* For Safari 5.1 to 6.0 */
-//  background: -o-linear-gradient(right, red, yellow); /* For Opera 11.1 to 12.0 */
-//  background: -moz-linear-gradient(right, red, yellow); /* For Firefox 3.6 to 15 */
-//  background: linear-gradient(to right, red , yellow); /* Standard syntax */
-//}
-
 .flair {
   white-space: nowrap;
   padding: 0 $pad 0 0;
@@ -113,7 +106,7 @@ $prestiges: 250 500 750 1000;
   }
 }
 
-$flairs: 'classic' p q w e r bittersweet dragon wicked poolparty winter;
+$flairs: LuluClassic Luluz0 Luluz1 Luluz2 Luluz3 Luluz4 LuluBittersweet LuluDragonTrainer LuluWicked LuluPoolParty LuluWinterWonder;
 $ranks: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteries: 7;
 @for $i from 1 through length($flairs) {
