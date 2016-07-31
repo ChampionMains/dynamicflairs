@@ -12,7 +12,7 @@ $pad: 10px;
   //white-space: nowrap;
   padding: 0 $pad 0 0;
   margin: 0 $pad 0 0;
-  min-width: $size;
+  min-width: $size - $pad;
   vertical-align: middle;
   //color: #000;
   background: url($flairs) -99px 0 repeat-y transparent;
