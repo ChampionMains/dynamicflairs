@@ -1,0 +1,6 @@
+---
+---
+$flairs: '%%UserFlairSprite%%';
+$ranks: '%%ranks%%';
+$masteries: '%%masteries%%';
+@import '{{ page.path | split:"/" | first }}/styles';

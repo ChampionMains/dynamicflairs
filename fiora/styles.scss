@@ -1,0 +1,133 @@
+$size: 20px;
+$pad: 10px;
+
+//@mixin flair-background($background) {
+//  background: -webkit-linear-gradient(left, red , yellow); /* For Safari 5.1 to 6.0 */
+//  background: -o-linear-gradient(right, red, yellow); /* For Opera 11.1 to 12.0 */
+//  background: -moz-linear-gradient(right, red, yellow); /* For Firefox 3.6 to 15 */
+//  background: linear-gradient(to right, red , yellow); /* Standard syntax */
+//}
+
+.flair {
+  //white-space: nowrap;
+  overflow: hidden;
+  max-width: 250px;
+  word-break: break-all;
+  padding: 0 $pad 0 0;
+  margin: 0 $pad 0 0;
+  min-width: $size - $pad;
+  vertical-align: middle;
+  //color: #000;
+  background: url($flairs) repeat-y transparent;
+  border: 1px solid #ddd;
+  position: relative;
+  z-index: 10;
+  //opacity: 0.7;
+  //border: none;
+  //border-radius: 2px;
+  //box-sizing: border-box;
+
+  height: $size;
+  line-height: $size;
+  
+  //-webkit-transition: all 0.3s;
+  //-moz-transition: all 0.3s;
+  //-ms-transition: all 0.3s;
+  //-o-transition: all 0.3s;
+  //transition: all 0.3s;
+
+  //min-width: $size * 2 - $pad;
+  //width: $size * 2 - $pad;
+  text-indent: $size + $pad;
+}
+
+//.flair:hover {
+//  opacity: 1.0;
+//  width: auto !important;
+//}
+
+// rank xor mastery xor prestige
+.flair[class*="flair-rank-"], .flair[class*="flair-mastery-"], .flair[class*="flair-prestige-"] {
+  //min-width: $size * 3 - $pad;
+  //width: $size * 3 - $pad;
+  text-indent: $size * 2 + $pad;
+}
+
+%flair-pseudoelement {
+  content: "";
+  display: block;
+  background: -99px 0 / #{$size} repeat-y;
+  
+  position: absolute;
+  top: 0;
+  left: $size;
+  width: $size;
+  height: $size;
+}
+.flair[class*="flair-rank-"]::before {
+  @extend %flair-pseudoelement;
+  background-image: url($ranks);
+}
+.flair[class*="flair-mastery-"]::after {
+  @extend %flair-pseudoelement;
+  background-image: url($masteries);
+}
+.flair[class*="flair-prestige-"]::after {
+  @extend %flair-pseudoelement;
+}
+
+// rank and mastery or
+// mastery and prestige or
+// rank and prestige
+.flair[class*="flair-rank-"][class*="flair-mastery-"],
+.flair[class*="flair-mastery-"][class*="flair-prestige-"],
+.flair[class*="flair-rank-"][class*="flair-prestige-"] {
+  //min-width: $size * 4 - $pad;
+  //width: $size * 4 - $pad;
+  text-indent: $size * 3 + $pad;
+}
+.flair[class*="flair-rank-"][class*="flair-mastery-"]::after,
+.flair[class*="flair-rank-"][class*="flair-prestige-"]::after {
+  left: $size * 2;
+}
+
+// rank and mastery and prestige
+.flair[class*="flair-rank-"][class*="flair-mastery-"][class*="flair-prestige-"] {
+  //min-width: $size * 5 - $pad;
+  //width: $size * 5 - $pad;
+  text-indent: $size * 4 + $pad;
+}
+
+// prestige
+.flair[class*="flair-prestige-"]::after {
+  color: #D80;
+  font-size: 80%;
+  line-height: $size;
+  text-align: center;
+  text-indent: 0;
+  width: $size;
+}
+.flair[class*="flair-prestige-"][class*="flair-mastery-"]::after {
+  text-indent: $size;
+  width: $size * 2;
+}
+
+$prestiges: 250 500 750 1000;
+@each $prestige in $prestiges {
+  .flair.flair-prestige-#{$prestige}::after {
+    content: '' + if($prestige == 1000, '1M', $prestige);
+  }
+}
+
+$flairs: FioraClassic FioraHeadmistress FioraNightraven FioraRoyalGuard FioraProject FioraPoolParty FioraKellyKrab FioraDuelist FioraLunge FioraRiposte FioraBladework FioraGrandChallenge;
+$ranks: unranked bronze 'silver' 'gold' platinum diamond master challenger;
+$masteries: 7;
+@for $i from 1 through length($flairs) {
+  %t-#{$i} { background-position: 0 (-$size * ($i - 1)) !important; }
+  $flair: nth($flairs, $i);
+  .flair-#{$flair} { @extend %t-#{$i}; }
+  @if $i <= length($ranks)  {
+    $rank: nth($ranks, $i);
+    .flair-rank-#{$rank}::before { @extend %t-#{$i}; }}
+  @if $i <= $masteries { .flair-mastery-#{$i}::after { @extend %t-#{$i}; }}
+}
