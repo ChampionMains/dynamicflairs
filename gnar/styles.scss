@@ -105,7 +105,6 @@ $prestiges: 250 500 750 1000;
     content: '' + if($prestige == 1000, '1M', $prestige);
   }
 }
-.flair-1231{content:'asd'}
 
 // new: ClassicAviator ClassicNightblade p q w e r1 r2
 $flairs: GnarClassic GnarMega Gnarz00 Gnarz0 Gnarz1 Gnarz2 Gnarz3 Gnarz4 Gnarz5 Gnarz6 Gnarz7

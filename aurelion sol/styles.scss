@@ -105,7 +105,6 @@ $prestiges: 250 500 750 1000;
     content: '' + if($prestige == 1000, '1M', $prestige);
   }
 }
-.flair-1231{content:'asd'}
 
 // new: ClassicAviator ClassicNightblade p q w e r1 r2
 $flairs: e-active e-normal passive q-active q-normal r-normal splash-ashen splash-base w-active w-normal;
