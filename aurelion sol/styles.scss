@@ -1,20 +1,20 @@
 $size: 25px;
-$pad: 10px;
+$pad: 7px;
 
 .flair {
   white-space: nowrap;
   padding: 0 $pad 0 0;
   margin: 0 $pad 0 0;
   vertical-align: middle;
-  color: #d2d2d2;
-  background: url($flairs) repeat-y #2E3135;
+  color: #FFF;
+  background: url($flairs) repeat-y 0 (-7 * 25px) #323C46;
   position: relative;
   z-index: 10;
-  //opacity: 0.7;
+  opacity: 0.8;
   overflow: hidden;
-  border: 1px solid #86CF9F; //#25282C;
-  border-radius: 2px;
-  box-sizing: contentiiikkkiiiiiiiio-box;
+  border: 1px solid #DDD;
+  //border-radius: 2px;
+  box-sizing: content-box;
 
   height: $size;
   line-height: $size;
@@ -25,21 +25,21 @@ $pad: 10px;
   -o-transition: all 0.3s;
   transition: all 0.3s;
 
-  min-width: $size * 2 - $pad;
-  width: $size * 2 - $pad;
-  text-indent: $size * 2 + $pad;
+  min-width: $size - $pad;
+  width: $size - $pad;
+  text-indent: $size + $pad;
 }
 
 .flair:hover {
-  //opacity: 1.0;
+  opacity: 1.0;
   width: auto !important;
 }
 
 // rank xor mastery xor prestige
 .flair[class*="flair-rank-"], .flair[class*="flair-mastery-"], .flair[class*="flair-prestige-"] {
-  min-width: $size * 3 - $pad;
-  width: $size * 3 - $pad;
-  text-indent: $size * 3 + $pad;
+  min-width: $size * 2 - $pad;
+  width: $size * 2 - $pad;
+  text-indent: $size * 2 + $pad;
 }
 
 %flair-pseudoelement {
@@ -49,7 +49,7 @@ $pad: 10px;
   
   position: absolute;
   top: 0;
-  left: $size * 2;
+  left: $size;
   width: $size;
   height: $size;
 }
@@ -71,32 +71,32 @@ $pad: 10px;
 .flair[class*="flair-rank-"][class*="flair-mastery-"],
 .flair[class*="flair-mastery-"][class*="flair-prestige-"],
 .flair[class*="flair-rank-"][class*="flair-prestige-"] {
-  min-width: $size * 4 - $pad;
-  width: $size * 4 - $pad;
-  text-indent: $size * 4 + $pad;
+  min-width: $size * 3 - $pad;
+  width: $size * 3 - $pad;
+  text-indent: $size * 3 + $pad;
 }
 .flair[class*="flair-rank-"][class*="flair-mastery-"]::after,
 .flair[class*="flair-rank-"][class*="flair-prestige-"]::after {
-  left: $size * 3;
+  left: $size * 2;
 }
 
 // rank and mastery and prestige
 .flair[class*="flair-rank-"][class*="flair-mastery-"][class*="flair-prestige-"] {
-  min-width: $size * 5 - $pad;
-  width: $size * 5 - $pad;
-  text-indent: $size * 5 + $pad;
+  min-width: $size * 4 - $pad;
+  width: $size * 4 - $pad;
+  text-indent: $size * 4 + $pad;
 }
 
 // prestige
 .flair[class*="flair-prestige-"]::after {
-  color: #A6FFC5;
+  color: #fd0;
   text-align: center;
   text-indent: 0;
   width: $size;
 }
 .flair[class*="flair-prestige-"][class*="flair-mastery-"]::after {
   text-indent: $size;
-  width: $size * 2;
+  width: $size;
 }
 
 $prestiges: 250 500 750 1000;
@@ -105,8 +105,10 @@ $prestiges: 250 500 750 1000;
     content: '' + if($prestige == 1000, '1M', $prestige);
   }
 }
+.flair-1231{content:'asd'}
 
-$flairs: Ekko1 Ekko2 Skill0 Skill1 Skill2 Skill3 Skill4 Ekko3 Ekko4;
+// new: ClassicAviator ClassicNightblade p q w e r1 r2
+$flairs: e-active e-normal passive q-active q-normal r-normal splash-ashen splash-base w-active w-normal;
 $ranks: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteries: 7;
 @for $i from 1 through length($flairs) {
