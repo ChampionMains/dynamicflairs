@@ -96,7 +96,7 @@ $pad: 7px;
 }
 .flair[class*="flair-prestige-"][class*="flair-mastery-"]::after {
   text-indent: $size;
-  width: $size;
+  width: $size * 2;
 }
 
 $prestiges: 250 500 750 1000;

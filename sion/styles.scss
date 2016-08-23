@@ -7,7 +7,7 @@ $pad: 7px;
   margin: 0 $pad 0 0;
   vertical-align: middle;
   color: #FFF;
-  background: url($flairs) repeat-y 0 (-7 * 25px) #323C46;
+  background: url($flairs) repeat-y -99px 0 #323C46;
   position: relative;
   z-index: 10;
   //opacity: 0.8;
