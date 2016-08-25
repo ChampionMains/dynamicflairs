@@ -1,13 +1,6 @@
 $size: 20px;
 $pad: 10px;
 
-//@mixin flair-background($background) {
-//  background: -webkit-linear-gradient(left, red , yellow); /* For Safari 5.1 to 6.0 */
-//  background: -o-linear-gradient(right, red, yellow); /* For Opera 11.1 to 12.0 */
-//  background: -moz-linear-gradient(right, red, yellow); /* For Firefox 3.6 to 15 */
-//  background: linear-gradient(to right, red , yellow); /* Standard syntax */
-//}
-
 .flair {
   //white-space: nowrap;
   padding: 0 $pad 0 0;
@@ -44,8 +37,8 @@ $pad: 10px;
 
 // rank xor mastery xor prestige
 .flair[class*="flair-rank-"], .flair[class*="flair-mastery-"], .flair[class*="flair-prestige-"] {
-  //min-width: $size * 3 - $pad;
-  //width: $size * 3 - $pad;
+  min-width: $size * 2 - $pad;
+  //width: $size * 2 - $pad;
   text-indent: $size * 2 + $pad;
 }
 
@@ -78,8 +71,8 @@ $pad: 10px;
 .flair[class*="flair-rank-"][class*="flair-mastery-"],
 .flair[class*="flair-mastery-"][class*="flair-prestige-"],
 .flair[class*="flair-rank-"][class*="flair-prestige-"] {
-  //min-width: $size * 4 - $pad;
-  //width: $size * 4 - $pad;
+  min-width: $size * 3 - $pad;
+  //width: $size * 3 - $pad;
   text-indent: $size * 3 + $pad;
 }
 .flair[class*="flair-rank-"][class*="flair-mastery-"]::after,
@@ -89,8 +82,8 @@ $pad: 10px;
 
 // rank and mastery and prestige
 .flair[class*="flair-rank-"][class*="flair-mastery-"][class*="flair-prestige-"] {
-  //min-width: $size * 5 - $pad;
-  //width: $size * 5 - $pad;
+  min-width: $size * 4 - $pad;
+  //width: $size * 4 - $pad;
   text-indent: $size * 4 + $pad;
 }
 
