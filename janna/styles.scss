@@ -8,11 +8,12 @@ $pad: 5px;
   vertical-align: middle;
   //color: #000;
   background: url($flairs) 0 -576px repeat-y;
-  border: 1px solid #e1e1e1;
+  //border: 1px solid #e1e1e1;
   position: relative;
   z-index: 10;
 
   height: $size;
+  font-size: 12px;
   line-height: $size;
   
   overflow: hidden;
