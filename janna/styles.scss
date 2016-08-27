@@ -1,0 +1,71 @@
+$size: 32px;
+$pad: 5px;
+
+.flair {
+  //white-space: nowrap;
+  padding: 0 $pad 0 0;
+  margin: 0 $pad 0 0;
+  vertical-align: middle;
+  //color: #000;
+  background: url($flairs) 0 -576px repeat-y;
+  border: 1px solid #e1e1e1;
+  position: relative;
+  z-index: 10;
+
+  height: $size;
+  line-height: $size;
+  
+  overflow: hidden;
+
+  min-width: $size - $pad;
+  text-indent: $size + $pad;
+}
+
+// mastery (and masteryText)
+.flair[class*="flair-mastery-"] {
+  min-width: $size * 2 - $pad;
+  text-indent: $size * 2 + $pad;
+}
+
+%flair-pseudoelement {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: $size;
+  height: $size;
+}
+.flair[class*="flair-mastery-"]::before {
+  @extend %flair-pseudoelement;
+  width: $size;
+  content: "";
+  background: url($masteries) -99px 0 / #{$size} repeat-y;
+}
+.flair.flair-masteryText::after {
+  @extend %flair-pseudoelement;
+  width: 0;
+  content: attr(title);
+  color: #C90;
+  line-height: $size;
+  text-indent: $pad;
+}
+
+.flair[class*="flair-mastery-"].flair-masteryText::after {
+  left: $size * 2;
+}
+
+$colors: #e04a2a #d832c1 #20bab2;
+@for $i from 5 through 7 {
+  .flair.flair-masteryText.flair-mastery-#{$i}::after {
+    color: nth($colors, $i - 4);
+  }
+}
+
+$flairs: JannaP JannaQ JannaW JannaE JannaR JannaClassicBeta JannaClassicScary JannaClassicOld JannaClassicChinese JannaClassic
+  JannaTempestOld JannaHextechOld JannaFrostQueen JannaVictorious JannaForecast JannaFnatic JannaHextech JannaTempest JannaPride
+  JannaCloud JannaCrown JannaStaff JannaSupport JannaUmbrella JannaStarling JannaRealism;
+@for $i from 1 through length($flairs) {
+  %t-#{$i} { background-position: 0 (-$size * ($i - 1)) !important; }
+  $flair: nth($flairs, $i);
+  .flair-#{$flair} { @extend %t-#{$i}; }
+  @if $i >= 5 && $i <= 7  { .flair-mastery-#{$i}::before { @extend %t-#{$i}; }}
+}

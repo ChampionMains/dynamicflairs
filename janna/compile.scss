@@ -1,0 +1,5 @@
+---
+---
+$flairs: 'spritesheet.png';
+$masteries: 'masteries.png';
+@import '{{ page.path | split:"/" | first }}/styles';

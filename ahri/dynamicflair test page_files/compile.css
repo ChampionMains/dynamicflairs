@@ -1,0 +1,148 @@
+.flair {
+  padding: 0 5px 0 0;
+  margin: 0 5px 0 0;
+  vertical-align: middle;
+  background: url("spritesheet.png") 0 -576px repeat-y;
+  position: relative;
+  z-index: 10;
+  height: 32px;
+  line-height: 32px;
+  overflow: hidden;
+  min-width: 27px;
+  text-indent: 37px;
+}
+
+.flair[class*="flair-mastery-"] {
+  min-width: 59px;
+  text-indent: 69px;
+}
+
+.flair[class*="flair-mastery-"]::before, .flair.flair-masteryText::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 32px;
+  height: 32px;
+}
+
+.flair[class*="flair-mastery-"]::before {
+  width: 32px;
+  content: "";
+  background: url("masteries.png") -99px 0 / 32px repeat-y;
+}
+
+.flair.flair-masteryText::after {
+  width: 0;
+  content: attr(title);
+  color: #870;
+  line-height: 32px;
+  text-indent: 5px;
+}
+
+.flair[class*="flair-mastery-"].flair-masteryText::after {
+  left: 64px;
+}
+
+.flair-JannaP, .flair-mastery-1::before {
+  background-position: 0 0px !important;
+}
+
+.flair-JannaQ, .flair-mastery-2::before {
+  background-position: 0 -32px !important;
+}
+
+.flair-JannaW, .flair-mastery-3::before {
+  background-position: 0 -64px !important;
+}
+
+.flair-JannaE, .flair-mastery-4::before {
+  background-position: 0 -96px !important;
+}
+
+.flair-JannaR, .flair-mastery-5::before {
+  background-position: 0 -128px !important;
+}
+
+.flair-JannaClassicBeta, .flair-mastery-6::before {
+  background-position: 0 -160px !important;
+}
+
+.flair-JannaClassicScary, .flair-mastery-7::before {
+  background-position: 0 -192px !important;
+}
+
+.flair-JannaClassicOld {
+  background-position: 0 -224px !important;
+}
+
+.flair-JannaClassicChinese {
+  background-position: 0 -256px !important;
+}
+
+.flair-JannaClassic {
+  background-position: 0 -288px !important;
+}
+
+.flair-JannaTempestOld {
+  background-position: 0 -320px !important;
+}
+
+.flair-JannaHextechOld {
+  background-position: 0 -352px !important;
+}
+
+.flair-JannaFrostQueen {
+  background-position: 0 -384px !important;
+}
+
+.flair-JannaVictorious {
+  background-position: 0 -416px !important;
+}
+
+.flair-JannaForecast {
+  background-position: 0 -448px !important;
+}
+
+.flair-JannaFnatic {
+  background-position: 0 -480px !important;
+}
+
+.flair-JannaHextech {
+  background-position: 0 -512px !important;
+}
+
+.flair-JannaTempest {
+  background-position: 0 -544px !important;
+}
+
+.flair-JannaPride {
+  background-position: 0 -576px !important;
+}
+
+.flair-JannaCloud {
+  background-position: 0 -608px !important;
+}
+
+.flair-JannaCrown {
+  background-position: 0 -640px !important;
+}
+
+.flair-JannaStaff {
+  background-position: 0 -672px !important;
+}
+
+.flair-JannaSupport {
+  background-position: 0 -704px !important;
+}
+
+.flair-JannaUmbrella {
+  background-position: 0 -736px !important;
+}
+
+.flair-JannaStarling {
+  background-position: 0 -768px !important;
+}
+
+.flair-JannaRealism {
+  background-position: 0 -800px !important;
+}
