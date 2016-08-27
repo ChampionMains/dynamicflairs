@@ -68,5 +68,5 @@ $flairs: JannaP JannaQ JannaW JannaE JannaR JannaClassicBeta JannaClassicScary J
   %t-#{$i} { background-position: 0 (-$size * ($i - 1)) !important; }
   $flair: nth($flairs, $i);
   .flair-#{$flair} { @extend %t-#{$i}; }
-  @if $i >= 5 && $i <= 7  { .flair-mastery-#{$i}::before { @extend %t-#{$i}; }}
+  @if $i <= 7  { .flair-mastery-#{$i}::before { @extend %t-#{$i}; }}
 }
