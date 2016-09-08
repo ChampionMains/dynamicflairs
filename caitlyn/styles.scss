@@ -29,14 +29,14 @@ $pad: 10px;
   //transition: all 0.3s;
 
   width: auto;
-  //min-width: $size * $ratio - $pad;
+  min-width: $size * $ratio - $pad;
   //width: $size * $ratio - $pad;
   text-indent: $size * $ratio + $pad;
 }
 
 // rank xor mastery xor prestige
 .flair[class*="flair-rank-"], .flair[class*="flair-mastery-"], .flair.flair-masteryText {
-  //min-width: $size + $size * $ratio - $pad;
+  min-width: $size + $size * $ratio - $pad;
   //width: $size + $size * $ratio - $pad;
   text-indent: $size + $size * $ratio + $pad;
 }
@@ -71,13 +71,13 @@ $pad: 10px;
 // mastery and prestige or
 // rank and prestige
 .flair[class*="flair-rank-"][class*="flair-mastery-"] {
-  //min-width: $size * 2 + $size * $ratio - $pad;
+  min-width: $size * 2 + $size * $ratio - $pad;
   //width: $size * 2 + $size * $ratio - $pad;
   text-indent: $size * 2 + $size * $ratio + $pad;
 }
 .flair[class*="flair-mastery-"].flair-masteryText,
 .flair[class*="flair-rank-"].flair-masteryText {
-  //min-width: $size * 2 + $size * $ratio - $pad;
+  min-width: $size * 2 + $size * $ratio - $pad;
   //width: $size * 2 + $size * $ratio - $pad;
   text-indent: $size + $size * $ratio + $masteryPad;
 }
@@ -88,7 +88,7 @@ $pad: 10px;
 
 // rank and mastery and prestige
 .flair[class*="flair-rank-"][class*="flair-mastery-"].flair-masteryText {
-  //min-width: $size * 3 + $size * $ratio - $pad;
+  min-width: $size * 3 + $size * $ratio - $pad;
   //width: $size * 3 + $size * $ratio - $pad;
   text-indent: $size * 2 + $size * $ratio + $masteryPad;
 }
