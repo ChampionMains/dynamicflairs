@@ -96,7 +96,7 @@ $pad: 10px;
 // prestige
 .flair.flair-masteryText::after {
   content: attr(title);
-  color: #fd0;
+  color: #fc0;
   text-align: left;
   text-indent: $masteryPad;
   width: 0;
@@ -106,7 +106,7 @@ $pad: 10px;
   width: $size;
 }
 
-$colors: #ff574d #fc30e0 #27e0d7;
+$colors: #f33 #3ff #e8f;
 @for $i from 5 through 7 {
   .flair.flair-masteryText.flair-mastery-#{$i}::after {
     color: nth($colors, $i - 4);
