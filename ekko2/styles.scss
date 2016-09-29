@@ -101,8 +101,7 @@ $pad: 10px;
   width: $size;
 }
 
-$flairs: TwitchClassic TwitchGangster TwitchKingpin TwitchMedieval TwitchPickpocket TwitchSSW
-  TwitchVandal TwitchWhsitlerVillage Twitchz0 Twitchz1 Twitchz2 Twitchz3 Twitchz4;
+$flairs: Ekko1 Ekko2 Skill0 Skill1 Skill2 Skill3 Skill4 Ekko3 Ekko4;
 $ranks: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteries: 7;
 @for $i from 1 through length($flairs) {
