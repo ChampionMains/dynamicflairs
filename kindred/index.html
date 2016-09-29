@@ -188,5 +188,17 @@ text: true
       {% endfor %}
     </tbody>
   </table>
+  <script type="text/javascript">
+    function update() {
+      [].forEach.call(document.body.getElementsByClassName('flair'),
+        function(e) {
+          e.style.backgroundColor = window.location.hash;
+        });
+    }
+    if (window.location.hash) {
+      update()
+    }
+    window.onhashchange = update;
+  </script>
 </body>
 </html>
