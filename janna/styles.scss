@@ -45,7 +45,7 @@ $pad: 5px;
   @extend %flair-pseudoelement;
   width: 0;
   content: attr(title);
-  color: #C90;
+  color: #c90;
   line-height: $size;
   text-indent: $pad;
 }
