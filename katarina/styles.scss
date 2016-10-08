@@ -1,5 +1,5 @@
-$size: 30px;
-$ratio: 1;
+$size: 25px;
+$ratio: 2;
 $masteryPad: 5px;
 $masterySize: 70px;
 $pad: 10px;
@@ -108,9 +108,9 @@ $colors: #ff574d #fc30e0 #27e0d7;
   }
 }
 
-$flairs: KatarinaBilgewater KatarinaClassic KatarinaHighCommand KatarinaKittyCat KatarinaMercenary
-  KatarinaRedCard KatarinaSandstorm KatarinaSlayBelle KatarinaWarringKingdoms KatarinaProject
-  Katarinaz0 Katarinaz1 Katarinaz2 Katarinaz3 Katarinaz4 KatarinaTail;
+$flairs: KatarinaBilgewater KatarinaClassic KatarinaHighCommand KatarinaKittyCat KatarinaMercenary KatarinaRedCard
+  KatarinaSandstorm KatarinaSlayBelle KatarinaWarringKingdoms KatarinaProject Katarinaz0 Katarinaz1 Katarinaz2
+  Katarinaz3 Katarinaz4 KatarinaTail KataText ItemZhonyas ItemDarkSeal ItemMejais;
 $ranks: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteries: 7;
 @for $i from 1 through length($flairs) {
