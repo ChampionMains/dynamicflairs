@@ -115,7 +115,7 @@ $colors: #ff574d #fc30e0 #27e0d7;
 
 $flairs: TeemoAstronaut TeemoBadger TeemoClassic TeemoCottontail TeemoHappyElf TeemoOmegaSquad
   TeemoPanda TeemoRecon TeemoSuper Teemoz0 Teemoz1 Teemoz2 Teemoz3 Teemoz4 Teemoz5 TeemoCottontailOld
-  TeemoIcon1 TeemoIcon2 TeemoIcon3 TeemoIcon4 TeemoIcon5;
+  TeemoIcon1 TeemoIcon2 TeemoIcon3 TeemoIcon4 TeemoIcon5 TeemoLittleDevil;
 $ranks: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteries: 7;
 @for $i from 1 through length($flairs) {
