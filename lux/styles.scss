@@ -1,4 +1,4 @@
-$size: 20px;
+$size: 30px;
 $ratio: 1;
 $masteryPad: 5px;
 $masterySize: 70px;
@@ -109,7 +109,7 @@ $colors: #e04a2a #d832c1 #20bab2;
 }
 
 $flairs: LuxClassic LuxCommando LuxImperial LuxSorceress LuxSpellThief LuxStarGuardian LuxSteelLegion
-  Luxz0 Luxz1 Luxz2 Luxz3 Luxz4;
+  Luxz0 Luxz1 Luxz2 Luxz3 Luxz4 Illumination Binding Barrier Singularity FinalSpark SpelltheifNew;
 $ranks: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteries: 7;
 @for $i from 1 through length($flairs) {
