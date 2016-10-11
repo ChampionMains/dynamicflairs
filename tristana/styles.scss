@@ -1,5 +1,5 @@
-$size: 30px;
-$ratio: 1;
+$size: 25px;
+$ratio: 2;
 $masteryPad: 5px;
 $masterySize: 70px;
 $pad: 10px;
@@ -108,8 +108,9 @@ $colors: #ff574d #fc30e0 #27e0d7;
   }
 }
 
-$flairs: TwitchClassic TwitchGangster TwitchKingpin TwitchMedieval TwitchPickpocket TwitchSSW
-  TwitchVandal TwitchWhsitlerVillage Twitchz0 Twitchz1 Twitchz2 Twitchz3 Twitchz4;
+$flairs: TristanaBuccaneer TristanaClassic TristanaDragonTrainer TristanaEarnestElf
+  TristanaFirefighter TristanaGuerilla TristanaRiotGirl TristanaRocketGirl Tristanaz0
+  Tristanaz1 Tristanaz2 Tristanaz3 Tristanaz4;
 $ranks: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteries: 7;
 @for $i from 1 through length($flairs) {
