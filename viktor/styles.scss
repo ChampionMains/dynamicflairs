@@ -92,6 +92,7 @@ $pad: 10px;
 .flair.flair-masteryText::after {
   content: attr(title);
   color: #fd0;
+  text-shadow: 0px 0px 1px #000;
   text-align: left;
   text-indent: $masteryPad;
   width: 0;
