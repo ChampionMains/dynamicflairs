@@ -109,7 +109,7 @@ $colors: #ff574d #fc30e0 #27e0d7;
   }
 }
 
-$flairs: ThreshClassic Threshz0 Threshz1 Theshz2 Threshz3 Threshz4 Threshz5 ThreshDeepTerror ThreshBloodMoon ThreshChampionship ThreshSSW ThreshDarkStar;
+$flairs: ThreshClassic Threshz0 Threshz1 Threshz2 Threshz3 Threshz4 Threshz5 ThreshDeepTerror ThreshBloodMoon ThreshChampionship ThreshSSW ThreshDarkStar;
 $ranks: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteries: 7;
 @for $i from 1 through length($flairs) {
