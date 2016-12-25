@@ -29,6 +29,8 @@ if not os.path.isdir(target + assets):
 ### flair image ###
 
 pngs = list(filter(lambda f: f.endswith('.png'), os.listdir(target + assets)))
+pngs = sorted(pngs, key=str.lower)
+
 full_pngs = [target + assets + '/' + p for p in pngs]
 
 from PIL import Image

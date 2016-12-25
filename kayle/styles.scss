@@ -109,7 +109,7 @@ $colors: #ff574d #fc30e0 #27e0d7;
   }
 }
 
-$flairs: KayleAetherWing KayleBattleborn KayleBigSword KayleE KayleIronInquisitor KayleJudgement KayleP KayleQ KayleR KayleRiot KayleSilver KayleUnmasked KayleVeridian KayleW KayleClassic;
+$flairs: KayleClassic KayleAetherWing KayleBattleborn KayleBigSword KayleE KayleIronInquisitor KayleJudgement KayleP KayleQ KayleR KayleRiot KayleSilver KayleUnmasked KayleVeridian KayleW;
 $ranks: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteries: 7;
 @for $i from 1 through length($flairs) {
