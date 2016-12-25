@@ -17,11 +17,11 @@ $pad: 10px;
   overflow: hidden;
   border: 1px solid #272727;
   border-radius: 2px;
-  box-sizing: border-box;
+  box-sizing: content-box;
 
   height: $size;
   line-height: $size;
-  
+
 
   width: auto;
   min-width: $size * $ratio - $pad;
@@ -43,7 +43,7 @@ $pad: 10px;
   content: "";
   display: block;
   background: 99px 0 / #{$size} repeat-y;
-  
+
   position: absolute;
   top: 0;
   left: $size * $ratio;
