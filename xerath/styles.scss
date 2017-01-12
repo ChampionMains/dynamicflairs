@@ -123,7 +123,7 @@ $colors: #ff574d #fc30e0 #27e0d7;
   }
 }
 
-$flairs: battlecast classic guardian-of-the-sands runeborn scorched-earth;
+$flairs: classic battlecast guardian-of-the-sands runeborn scorched-earth;
 $ranks: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteries: 7;
 @for $i from 1 through max(length($flairs), length($ranks)) {
