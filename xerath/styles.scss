@@ -126,11 +126,12 @@ $colors: #ff574d #fc30e0 #27e0d7;
 $flairs: battlecast classic guardian-of-the-sands runeborn scorched-earth;
 $ranks: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteries: 7;
-@for $i from 1 through length($flairs) {
+@for $i from 1 through max(length($flairs), length($ranks)) {
   %t-#{$i} { background-position: 0 (-$size * ($i - 1)) !important; }
-  $flair: nth($flairs, $i);
-  .flair-#{$flair} { @extend %t-#{$i}; }
-  @if $i <= length($ranks)  {
+  @if $i <= length($flairs) {
+    $flair: nth($flairs, $i);
+    .flair-#{$flair} { @extend %t-#{$i}; }}
+  @if $i <= length($ranks) {
     $rank: nth($ranks, $i);
     .flair-rank-#{$rank}::before { @extend %t-#{$i}; }}
   @if $i <= $masteries { .flair-mastery-#{$i}::after { @extend %t-#{$i}; }}
