@@ -109,16 +109,16 @@ $colors: #ff574d #fc30e0 #27e0d7;
   }
 }
 
-$flairs: $$FLAIRNAMES$$;
-$ranks: unranked bronze 'silver' 'gold' platinum diamond master challenger;
-$masteries: 7;
-@for $i from 1 through max(length($flairs), length($ranks)) {
+$flairNames: $$FLAIRNAMES$$;
+$rankNames: unranked bronze 'silver' 'gold' platinum diamond master challenger;
+$masteriesCount: 7;
+@for $i from 1 through max(length($flairNames), length($rankNames)) {
   %t-#{$i} { background-position: 0 (-$size * ($i - 1)) !important; }
-  @if $i <= length($flairs) {
-    $flair: nth($flairs, $i);
+  @if $i <= length($flairNames) {
+    $flair: nth($flairNames, $i);
     .flair-#{$flair} { @extend %t-#{$i}; }}
-  @if $i <= length($ranks) {
-    $rank: nth($ranks, $i);
+  @if $i <= length($rankNames) {
+    $rank: nth($rankNames, $i);
     .flair-rank-#{$rank}::before { @extend %t-#{$i}; }}
-  @if $i <= $masteries { .flair-mastery-#{$i}::after { @extend %t-#{$i}; }}
+  @if $i <= $masteriesCount { .flair-mastery-#{$i}::after { @extend %t-#{$i}; }}
 }

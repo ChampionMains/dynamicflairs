@@ -37,7 +37,7 @@ from PIL import Image
 images = list(map(Image.open, full_pngs))
 
 h = dim[1] * len(images)
-flairs_img = Image.new('RGB', (dim[0], h))
+flairs_img = Image.new('RGBA', (dim[0], h))
 
 for y in range(len(images)):
   images[y].thumbnail(dim, Image.ANTIALIAS)
@@ -78,6 +78,3 @@ with open(template + '/index.html', 'r') as html_file:
 html = html.replace('$$FLAIRNAMES$$', '\n'.join(['  - ' + c for c in classes]))
 with open(target + '/index.html', 'w') as html_file:
   html_file.write(html)
-
-  
-
