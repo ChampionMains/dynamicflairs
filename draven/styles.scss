@@ -16,7 +16,7 @@ $pad: 10px;
   //opacity: 0.7;
   overflow: hidden;
   border: 1px solid #272727;
-  border-radius: 2px;
+//  border-radius: 2px;
   box-sizing: content-box;
 
   height: $size;
@@ -142,7 +142,7 @@ $masteriesCount: 7;
     //opacity: 0.7;
     overflow: hidden;
     border: 1px solid #272727;
-    border-radius: 2px;
+//    border-radius: 2px;
     box-sizing: content-box;
 
     height: $size;
@@ -249,6 +249,19 @@ $masteriesCount: 7;
 //      $rank: nth($ranks, $i);
 //      &.flair-rank-#{$rank}::before { @extend %t-#{$i}; }}
 //    @if $i <= $masteries { &.flair-mastery-#{$i}::after { @extend %t-#{$i}; }}
+  }
+  
+  &.flair-rank-diamond {
+    border-color: #a9bcb6;
+    outline: 1px solid #000;
+  }
+  &.flair-rank-master {
+    border-color: #d1aa63;
+    outline: 1px solid #000;
+  }
+  &.flair-rank-challenger {
+    border-color: #65e4c6;
+    outline: 1px solid #000;
   }
 }
 
