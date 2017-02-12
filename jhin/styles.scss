@@ -21,7 +21,7 @@ $pad: 10px;
 
   height: $size;
   line-height: $size;
-  
+
 
   width: auto;
   min-width: $size * $ratio - $pad;
@@ -43,7 +43,7 @@ $pad: 10px;
   content: "";
   display: block;
   background: 99px 0 / #{$size} repeat-y;
-  
+
   position: absolute;
   top: 0;
   left: $size * $ratio;
@@ -109,7 +109,7 @@ $colors: #ff574d #fc30e0 #27e0d7;
   }
 }
 
-$flairs: JhinClassic JhinHighNoon Jhinz0 Jhinz1 Jhinz2 Jhinz3 Jhinz4 Example1 Example2;
+$flairs: JhinClassic JhinHighNoon Jhinz0 Jhinz1 Jhinz2 Jhinz3 Jhinz4 JhinBloodMoonIcon JhinBloodMoon;
 $ranks: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteries: 7;
 @for $i from 1 through length($flairs) {
