@@ -33,16 +33,28 @@ pngs = sorted(pngs, key=str.lower)
 
 full_pngs = [target + assets + '/' + p for p in pngs]
 
-from PIL import Image
+from PIL import Image, ImageFilter
 images = list(map(Image.open, full_pngs))
 
 h = dim[1] * len(images)
 flairs_img = Image.new('RGBA', (dim[0], h))
 
 for y in range(len(images)):
-  images[y] = images[y].convert('RGBA')
-  images[y].thumbnail(dim, resample=Image.BICUBIC)
-  flairs_img.paste(images[y], (0, dim[1] * y))
+  img = images[y].convert('RGBA')
+  img.thumbnail(dim)
+  loc = [0, dim[1] * y]
+  loc[0] += (dim[0] - img.size[0]) // 2
+  loc[1] += (dim[1] - img.size[1]) // 2
+  #TODO
+  left = img.crop((0, 0, 1, img.size[1]))
+  right = img.crop((img.size[0] - 1, 0, img.size[0], img.size[1]))
+  left = left.resize((dim[0] // 2, dim[1]), resample=Image.NEAREST)
+  right = right.resize((dim[0] // 2, dim[0]), resample=Image.NEAREST)
+  left.putalpha(127)
+  right.putalpha(127)
+  flairs_img.paste(left, (0, dim[1] * y))
+  flairs_img.paste(right, (dim[0] // 2, dim[1] * y))
+  flairs_img.paste(img, tuple(loc))
 
 flairs_img.save(target + flairs_png)
 
