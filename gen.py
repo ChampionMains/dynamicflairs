@@ -40,7 +40,7 @@ h = dim[1] * len(images)
 flairs_img = Image.new('RGBA', (dim[0], h))
 
 for y in range(len(images)):
-  images[y].thumbnail(dim, Image.ANTIALIAS)
+  images[y].thumbnail(dim, resample=Image.BICUBIC)
   flairs_img.paste(images[y], (0, dim[1] * y))
 
 flairs_img.save(target + flairs_png)
@@ -59,7 +59,7 @@ mast_img.save(target + '/masteries.png')
 
 ### template files ###
 
-classes = [p[:p.index('.')].replace('_', '') for p in pngs]
+classes = [p[:p.index('.')].replace('_', '').replace(' ', '-') for p in pngs]
 
 import shutil
 for f in ['compile.scss', 'reddit.scss']:
