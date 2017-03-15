@@ -40,6 +40,7 @@ h = dim[1] * len(images)
 flairs_img = Image.new('RGBA', (dim[0], h))
 
 for y in range(len(images)):
+  images[y] = images[y].convert('RGBA')
   images[y].thumbnail(dim, resample=Image.BICUBIC)
   flairs_img.paste(images[y], (0, dim[1] * y))
 
