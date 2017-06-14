@@ -15,9 +15,10 @@ $pad: 10px;
   z-index: 10;
   //opacity: 0.7;
   overflow: hidden;
-  border: 1px solid #272727;
+  border: 1px solid #a9bcb6;
   //border-radius: 2px;
   //box-sizing: content-box;
+  outline: 1px solid #000;
 
   height: $size;
   line-height: $size;
@@ -100,20 +101,6 @@ $pad: 10px;
 .flair.flair-masteryText[class*="flair-mastery-"]::after {
   text-indent: $size + $masteryPad;
   width: $size;
-}
-
-.flair-rank-diamond, .flair-rank-master, .flair-rank-challenger {
-  border-color: #fd0;
-  outline: 1px solid #000;
-}
-.flair-rank-diamond {
-  border-color: #a9bcb6;
-}
-.flair-rank-master {
-  border-color: #d1aa63;
-}
-.flair-rank-challenger {
-  border-color: #65e4c6;
 }
 
 $colors: #ff574d #fc30e0 #27e0d7;
