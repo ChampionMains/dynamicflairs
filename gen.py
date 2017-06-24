@@ -41,7 +41,10 @@ flairs_img = Image.new('RGBA', (dim[0], h))
 
 for y in range(len(images)):
   img = images[y].convert('RGBA')
-  img.thumbnail(dim)
+  if img.size[0] / img.size[1] > dim[0] / dim[1]:
+    img.thumbnail((img.size[0] / img.size[1] * dim[0], dim[1]))
+  else:
+    img.thumbnail(dim)
   
   loc = [0, dim[1] * y]
   loc[0] += (dim[0] - img.size[0]) // 2
