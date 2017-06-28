@@ -1,5 +1,5 @@
-$size: 50px;
-$ratio: 1.44;
+$size: 32px;
+$ratio: 2.0;
 $masteryPad: 5px;
 $masterySize: 70px;
 $pad: 10px;
@@ -109,7 +109,7 @@ $colors: #ff574d #fc30e0 #27e0d7;
   }
 }
 
-$flairNames: BloodmoonTFface CutpurseTFface JoHTFface MusketeerTFfaceNew MusketeerTFfaceOld PaxTFface TangoTFface;
+$flairNames: TFClassicFace BloodmoonTFface CutpurseTFface JoHTFface MusketeerTFfaceNew MusketeerTFfaceOld PaxTFface TangoTFface;
 $rankNames: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteriesCount: 7;
 @for $i from 1 through max(length($flairNames), length($rankNames)) {
