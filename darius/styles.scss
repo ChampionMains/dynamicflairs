@@ -109,16 +109,16 @@ $colors: #ff574d #fc30e0 #27e0d7;
   }
 }
 
-$flairs: darius-1 darius-2 darisu-3 darius-10 darius-11 darius-12 darius-13 darius-4 darius-5 darius-6 darius-7 darius-8 darius-9;
-$ranks: unranked bronze 'silver' 'gold' platinum diamond master challenger;
-$masteries: 7;
-@for $i from 1 through max(length($flairs), length($ranks)) {
+$flairNames: darius-1 darius-2 darius-3 darius-4 darius-5 darius-6 darius-7 darius-8 darius-9 darius-10 darius-11 darius-12 darius-13 darius-14;
+$rankNames: unranked bronze 'silver' 'gold' platinum diamond master challenger;
+$masteriesCount: 7;
+@for $i from 1 through max(length($flairNames), length($rankNames)) {
   %t-#{$i} { background-position: 0 (-$size * ($i - 1)) !important; }
-  @if $i <= length($flairs) {
-    $flair: nth($flairs, $i);
+  @if $i <= length($flairNames) {
+    $flair: nth($flairNames, $i);
     .flair-#{$flair} { @extend %t-#{$i}; }}
-  @if $i <= length($ranks) {
-    $rank: nth($ranks, $i);
+  @if $i <= length($rankNames) {
+    $rank: nth($rankNames, $i);
     .flair-rank-#{$rank}::before { @extend %t-#{$i}; }}
-  @if $i <= $masteries { .flair-mastery-#{$i}::after { @extend %t-#{$i}; }}
+  @if $i <= $masteriesCount { .flair-mastery-#{$i}::after { @extend %t-#{$i}; }}
 }
