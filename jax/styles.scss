@@ -102,6 +102,19 @@ $pad: 10px;
   width: $size;
 }
 
+.flair-rank-diamond, .flair-rank-master, .flair-rank-challenger {
+  outline: 1px solid #000;
+}
+.flair-rank-diamond {
+  border-color: #a9bcb6;
+}
+.flair-rank-master {
+  border-color: #d1aa63;
+}
+.flair-rank-challenger {
+  border-color: #65e4c6;
+}
+
 $colors: #ff574d #fc30e0 #27e0d7;
 @for $i from 5 through 7 {
   .flair.flair-masteryText.flair-mastery-#{$i}::after {
