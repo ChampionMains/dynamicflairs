@@ -5,6 +5,7 @@ $masterySize: 70px;
 $pad: 10px;
 
 .flair {
+  display: inline-block;
   //white-space: nowrap;
   padding: 0 $pad 0 0;
   margin: 0 $pad 0 0;
