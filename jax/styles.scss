@@ -109,7 +109,7 @@ $colors: #ff574d #fc30e0 #27e0d7;
   }
 }
 
-$flairNames: jax passive q w e r mighty vandal angler pax jaximus temple nemsis skt passive2 q2 w2 e2 r2 manamura kappa cleaverwits;
+$flairNames: jax passive q w e r mighty vandal angler pax jaximus temple nemesis skt passive2 q2 w2 e2 r2 manamura kappa cleaverwits;
 $rankNames: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteriesCount: 7;
 @for $i from 1 through max(length($flairNames), length($rankNames)) {
