@@ -47,7 +47,10 @@ flairs_img = Image.new('RGBA', (dim[0], h))
 for y in range(len(images)):
   img = images[y].convert('RGBA')
   if img.size[0] / img.size[1] > dim[0] / dim[1]:
-    img = img.resize((int(img.size[0] / img.size[1] * dim[0]), dim[1]), resample=Image.BILINEAR)
+    width = int(img.size[0] * dim[1] / img.size[1])
+    img = img.resize((width, dim[1]), resample=Image.BILINEAR)
+    offset = int((width - dim[0]) / 2) # extra width / 2
+    img = img.crop((offset, 0, offset + dim[0], dim[1]))
   else:
     img = img.resize(dim, resample=Image.BILINEAR)
 
