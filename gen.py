@@ -90,6 +90,7 @@ for f in ['compile.scss', 'reddit.scss']:
 with open(template + '/styles.scss', 'r') as styles_file:
   scss = styles_file.read()
 scss = scss.replace('$$SIZE$$', str(original_dim[1]))
+scss = scss.replace('$$WIDTH$$', str(original_dim[0]))
 scss = scss.replace('$$RATIO$$', str(dim[0] / dim[1]))
 scss = scss.replace('$$FLAIRNAMES$$', ' '.join(classes))
 with open(target + '/styles.scss', 'w') as styles_file:
