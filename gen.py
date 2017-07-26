@@ -11,10 +11,13 @@ if len(sys.argv) < 4:
   sys.exit(1)
 
 target = sys.argv[1]
+scaling = 1
 try:
   dim = tuple(map(int, sys.argv[2:4]))
+  if len(sys.argv) > 4:
+    scaling = float(sys.argv[4])
 except ValueError:
-  print('Last 2 args must be numeric (image size)')
+  print('Last three args must be numeric (image size)')
   sys.exit(2)
 
 if not os.path.isdir(target):
@@ -25,6 +28,8 @@ if not os.path.isdir(target + assets):
   print('target does not have assets folder')
   sys.exit(4)
 
+original_dim = dim
+dim = tuple([ int(scaling * x) for x in dim ])
 
 ### flair image ###
 
@@ -42,10 +47,10 @@ flairs_img = Image.new('RGBA', (dim[0], h))
 for y in range(len(images)):
   img = images[y].convert('RGBA')
   if img.size[0] / img.size[1] > dim[0] / dim[1]:
-    img.thumbnail((img.size[0] / img.size[1] * dim[0], dim[1]))
+    img = img.resize((int(img.size[0] / img.size[1] * dim[0]), dim[1]), resample=Image.BILINEAR)
   else:
-    img.thumbnail(dim)
-  
+    img = img.resize(dim, resample=Image.BILINEAR)
+
   loc = [0, dim[1] * y]
   loc[0] += (dim[0] - img.size[0]) // 2
   loc[1] += (dim[1] - img.size[1]) // 2
@@ -84,7 +89,7 @@ for f in ['compile.scss', 'reddit.scss']:
 
 with open(template + '/styles.scss', 'r') as styles_file:
   scss = styles_file.read()
-scss = scss.replace('$$SIZE$$', str(dim[1]))
+scss = scss.replace('$$SIZE$$', str(original_dim[1]))
 scss = scss.replace('$$RATIO$$', str(dim[0] / dim[1]))
 scss = scss.replace('$$FLAIRNAMES$$', ' '.join(classes))
 with open(target + '/styles.scss', 'w') as styles_file:
