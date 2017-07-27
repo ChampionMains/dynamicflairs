@@ -1,0 +1,125 @@
+$size: 25px;
+$ratio: 2.0;
+$masteryPad: 5px;
+$masterySize: 70px;
+$pad: 10px;
+
+.flair {
+  display: inline-block;
+  //white-space: nowrap;
+  padding: 0 $pad 0 0;
+  margin: 0 $pad 0 0;
+  vertical-align: middle;
+  color: #FFF;
+  background: url($flairs) repeat-y #272727 0 / 50px;
+  position: relative;
+  z-index: 10;
+  //opacity: 0.7;
+  overflow: hidden;
+  border: 1px solid #272727;
+  border-radius: 2px;
+  box-sizing: content-box;
+
+  height: $size;
+  line-height: $size;
+
+
+  width: auto;
+  min-width: $size * $ratio - $pad;
+  //width: $size * $ratio - $pad;
+  text-indent: $size * $ratio + $pad;
+}
+
+// rank xor mastery xor prestige
+.flair[class*="flair-rank-"], .flair[class*="flair-mastery-"], .flair.flair-masteryText {
+  min-width: $size + $size * $ratio - $pad;
+  //width: $size + $size * $ratio - $pad;
+  text-indent: $size + $size * $ratio + $pad;
+}
+.flair.flair-masteryText {
+  text-indent: $size * $ratio + $masteryPad;
+}
+
+%flair-pseudoelement {
+  content: "";
+  display: block;
+  background: 99px 0 / #{$size} repeat-y;
+
+  position: absolute;
+  top: 0;
+  left: $size * $ratio;
+  width: $size;
+  height: $size;
+}
+.flair[class*="flair-rank-"]::before {
+  @extend %flair-pseudoelement;
+  background-image: url($ranks);
+}
+.flair[class*="flair-mastery-"]::after {
+  @extend %flair-pseudoelement;
+  background-image: url($masteries);
+}
+.flair.flair-masteryText::after {
+  @extend %flair-pseudoelement;
+}
+
+// rank and mastery or
+// mastery and prestige or
+// rank and prestige
+.flair[class*="flair-rank-"][class*="flair-mastery-"] {
+  min-width: $size * 2 + $size * $ratio - $pad;
+  //width: $size * 2 + $size * $ratio - $pad;
+  text-indent: $size * 2 + $size * $ratio + $pad;
+}
+.flair[class*="flair-mastery-"].flair-masteryText,
+.flair[class*="flair-rank-"].flair-masteryText {
+  min-width: $size * 2 + $size * $ratio - $pad;
+  //width: $size * 2 + $size * $ratio - $pad;
+  text-indent: $size + $size * $ratio + $masteryPad;
+}
+.flair[class*="flair-rank-"][class*="flair-mastery-"]::after,
+.flair[class*="flair-rank-"].flair-masteryText::after {
+  left: $size + $size * $ratio;
+}
+
+// rank and mastery and prestige
+.flair[class*="flair-rank-"][class*="flair-mastery-"].flair-masteryText {
+  min-width: $size * 3 + $size * $ratio - $pad;
+  //width: $size * 3 + $size * $ratio - $pad;
+  text-indent: $size * 2 + $size * $ratio + $masteryPad;
+}
+
+// prestige
+.flair.flair-masteryText::after {
+  content: attr(title);
+  color: #fd0;
+  text-shadow: 0px 0px 1px #000;
+  text-align: left;
+  text-indent: $masteryPad;
+  width: 0;
+}
+.flair.flair-masteryText[class*="flair-mastery-"]::after {
+  text-indent: $size + $masteryPad;
+  width: $size;
+}
+
+$colors: #ff574d #fc30e0 #27e0d7;
+@for $i from 5 through 7 {
+  .flair.flair-masteryText.flair-mastery-#{$i}::after {
+    color: nth($colors, $i - 4);
+  }
+}
+
+$flairNames: BattleBossBlitz BoomBoomBlitz Cute-Grab DefaultBlitz DefNotBlitz GoalBlitz iBlitz PiltoverCustomsBlitz RiotBlitz RustyBlitz;
+$rankNames: unranked bronze 'silver' 'gold' platinum diamond master challenger;
+$masteriesCount: 7;
+@for $i from 1 through max(length($flairNames), length($rankNames)) {
+  %t-#{$i} { background-position: 0 (-$size * ($i - 1)) !important; }
+  @if $i <= length($flairNames) {
+    $flair: nth($flairNames, $i);
+    .flair-#{$flair} { @extend %t-#{$i}; }}
+  @if $i <= length($rankNames) {
+    $rank: nth($rankNames, $i);
+    .flair-rank-#{$rank}::before { @extend %t-#{$i}; }}
+  @if $i <= $masteriesCount { .flair-mastery-#{$i}::after { @extend %t-#{$i}; }}
+}
