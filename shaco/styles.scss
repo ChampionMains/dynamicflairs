@@ -21,7 +21,7 @@ $pad: 10px;
 
   height: $size;
   line-height: $size;
-  
+
 
   width: auto;
   min-width: $size * $ratio - $pad;
@@ -43,7 +43,7 @@ $pad: 10px;
   content: "";
   display: block;
   background: 99px 0 / #{$size} repeat-y;
-  
+
   position: absolute;
   top: 0;
   left: $size * $ratio;
@@ -102,7 +102,6 @@ $pad: 10px;
 }
 
 .flair-rank-diamond, .flair-rank-master, .flair-rank-challenger {
-  border-color: #fd0;
   outline: 1px solid #000;
 }
 .flair-rank-diamond {
