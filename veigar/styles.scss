@@ -1,16 +1,17 @@
-$size: 25px;
+$size: 50px;
 $ratio: 2.0;
 $masteryPad: 5px;
 $masterySize: 70px;
 $pad: 10px;
 
 .flair {
+  display: inline-block;
   //white-space: nowrap;
   padding: 0 $pad 0 0;
   margin: 0 $pad 0 0;
   vertical-align: middle;
   color: #FFF;
-  background: url($flairs) repeat-y #272727;
+  background: url($flairs) repeat-y #272727 0 0 / 100px;
   position: relative;
   z-index: 10;
   //opacity: 0.7;
@@ -109,7 +110,7 @@ $colors: #ff574d #fc30e0 #27e0d7;
   }
 }
 
-$flairNames: Original BadSanta BaronVonVeigar Curling FinalBoss FinalBossAlt Greybeard Leprechaun LeprechaunCh SuperbVillain WhiteMage;
+$flairNames: Original BadSanta BaronVonVeigar Curling FinalBoss FinalBossAlt Greybeard Leprechaun LeprechaunCh OmegaSquad SuperbVillain WhiteMage;
 $rankNames: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteriesCount: 7;
 @for $i from 1 through max(length($flairNames), length($rankNames)) {
