@@ -52,7 +52,7 @@ for y in range(len(images)):
     offset = int((width - dim[0]) / 2) # extra width / 2
     img = img.crop((offset, 0, offset + dim[0], dim[1]))
   else:
-    img = img.resize(dim, resample=Image.BILINEAR)
+    img = img.resize((int(dim[1] * img.size[0] / img.size[1]), dim[1]), resample=Image.BILINEAR)
 
   loc = [0, dim[1] * y]
   loc[0] += (dim[0] - img.size[0]) // 2
