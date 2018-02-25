@@ -110,7 +110,7 @@ $colors: #ff574d #fc30e0 #27e0d7;
   }
 }
 
-$flairNames: new-swain-1 new-swain-10 new-swain-2 new-swain-3 new-swain-4 new-swain-5 new-swain-6 new-swain-7 new-swain-8 new-swain-9 new-swain-a-1 new-swain-a-2 new-swain-a-3 new-swain-a-4 new-swain-a-5 new-swain-a-6 old-swain-1 old-swain-10 old-swain-2 old-swain-3 old-swain-4 old-swain-5 old-swain-6 old-swain-7 old-swain-8 old-swain-9 old-swain-a-1 old-swain-a-2 old-swain-a-3 old-swain-a-4 old-swain-a-5 vip-rito;
+$flairNames: new-swain-1 new-swain-2 new-swain-3 new-swain-4 new-swain-5 new-swain-6 new-swain-7 new-swain-8 new-swain-9 new-swain-10 new-swain-a-1 new-swain-a-2 new-swain-a-3 new-swain-a-4 new-swain-a-5 new-swain-a-6 old-swain-1 old-swain-10 old-swain-2 old-swain-3 old-swain-4 old-swain-5 old-swain-6 old-swain-7 old-swain-8 old-swain-9 old-swain-a-1 old-swain-a-2 old-swain-a-3 old-swain-a-4 old-swain-a-5 vip-rito;
 $rankNames: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteriesCount: 7;
 @for $i from 1 through max(length($flairNames), length($rankNames)) {
