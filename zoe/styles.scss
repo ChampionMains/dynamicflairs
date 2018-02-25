@@ -110,7 +110,7 @@ $colors: #ff574d #fc30e0 #27e0d7;
   }
 }
 
-$flairNames: butterfly classic cyberpop e mouth ohayou p q r trash w;
+$flairNames: classic butterfly cyberpop e mouth ohayou p q r trash w;
 $rankNames: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteriesCount: 7;
 @for $i from 1 through max(length($flairNames), length($rankNames)) {
