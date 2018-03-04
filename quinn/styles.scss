@@ -110,7 +110,7 @@ $colors: #ff574d #fc30e0 #27e0d7;
   }
 }
 
-$flairNames: Quinn1 Quinn2 Quinn3 Quinn4 Quinn5 Valor1 Valor2 Valor3 Valor4 Valor5;
+$flairNames: Quinn1 Quinn2 Quinn3 Quinn4 Quinn5 Skill0 Skill1 Skill2 Skill3 Skill4 Skill5 Valor1 Valor2 Valor3 Valor4 Valor5;
 $rankNames: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteriesCount: 7;
 @for $i from 1 through max(length($flairNames), length($rankNames)) {
