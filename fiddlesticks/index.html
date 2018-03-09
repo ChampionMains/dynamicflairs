@@ -1,0 +1,184 @@
+---
+flairs:
+  - FiddleClassicNew
+  - FiddleClassic
+  - FiddleAlt0
+  - FiddleAlt1
+  - FiddleBandito
+  - FiddleDark
+  - FiddleMe
+  - FiddlePumpkin
+  - FiddleRisen
+  - FiddleSpectral
+  - FiddleSurprise
+  - FiddleUnion
+masteries: 7
+points:
+  - '108'
+  - '32,301'
+  - '751,501'
+  - '1,205,013'
+ranks:
+  - unranked
+  - bronze
+  - silver
+  - gold
+  - platinum
+  - diamond
+  - master
+  - challenger
+text: true
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>dynamicflair test page</title>
+  <style>
+    /* reddit styles */
+    body { font-family: "Roboto",Helvetica,Arial,"Lucida Grande",sans-serif; }
+    .flair {
+      font-size: 12px;
+      display: inline-block;
+    }
+    
+    th {
+      width: 450px;
+      height: 40px;
+    }
+    td {
+      height: 60px;
+    }
+    table {
+      table-layout: fixed;
+      width: 1px; /* expands anyway */
+    }
+  </style>
+  <link rel="stylesheet" href="compile.css">
+</head>
+
+<body>
+  <div>
+    <img src="flairs.png" />
+    <img src="ranks.png" />
+    <img src="masteries.png" />
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        {% for i in page.flairs %}
+          <th>{{ i }}{% if i == page.flairs.first %} (default){% endif %}</th>
+        {% endfor  %}
+      </tr>
+    </thead>
+    <tbody>
+      <!-- NORMAL -->
+      <tr>
+        <th>none</th>
+        {% for i in page.flairs %}
+          <td>
+            <span class="flair flair-{{ i }}">{% if page.text %}{{ i }}{% endif %}</span>
+          </td>
+        {% endfor %}
+      </tr>
+      <!-- POINTS -->
+      {% for points in page.points %}
+        <tr>
+          <th>masteryText</th>
+          {% for i in page.flairs %}
+            <td>
+              <span title="{{ points }}{% if page.text %} {{ i }} masteryText{% endif %}" class="flair flair-{{ i }} flair-masteryText">
+                {{ points }}{% if page.text %} {{ i }} masteryText{% endif %}
+              </span>
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+      <!-- RANK -->
+      {% for rank in page.ranks %}
+        <tr>
+          <th> rank-{{ rank }}</th>
+          {% for i in page.flairs %}
+            <td>
+              <span class="flair flair-{{ i }} flair-rank-{{ rank }}">{% if page.text %}{{ i }} rank-{{ rank }}{% endif %}</span>
+            </td>
+          {% endfor %}
+        </tr>
+        {% for points in page.points %}
+          <tr>
+            <th> rank-{{ rank }} masteryText</th>
+            {% for i in page.flairs %}
+              <td>
+                <span title="{{ points }}{% if page.text %} {{ i }} rank-{{ rank }} masteryText{% endif %}"
+                      class="flair flair-{{ i }} flair-rank-{{ rank }} flair-masteryText">
+                  {{ points }}{% if page.text %} {{ i }} rank-{{ rank }} masteryText{% endif %}
+                </span>
+              </td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      {% endfor %}
+      <!-- MASTERY -->
+      {% for mastery in (1..page.masteries) %}
+        <tr>
+          <th> mastery-{{ mastery }}</th>
+          {% for i in page.flairs %}
+            <td>
+              <span class="flair flair-{{ i }} flair-mastery-{{ mastery }}">{% if page.text %}{{ i }} mastery-{{ mastery }}{% endif %}</span>
+            </td>
+          {% endfor %}
+        </tr>
+        {% if mastery >= 5 %}
+          <!-- POINTS -->
+          {% for points in page.points %}
+            <tr>
+              <th> mastery-{{ mastery }} masteryText</th>
+              {% for i in page.flairs %}
+                <td>
+                  <span title="{{ points }}{% if page.text %} {{ i }} mastery-{{ mastery }} masteryText{% endif %}"
+                        class="flair flair-{{ i }} flair-mastery-{{ mastery }} flair-masteryText">
+                    {{ points }}{% if page.text %} {{ i }} mastery-{{ mastery }} masteryText{% endif %}
+                  </span>
+                </td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+      <!-- MASTERY AND RANK -->
+      {% for rank in page.ranks %}
+        {% for mastery in (1..page.masteries) %}
+          <tr>
+            <th> rank-{{ rank }} mastery-{{ mastery }}</th>
+            {% for i in page.flairs %}
+              <td>
+                <span class="flair flair-{{ i }} flair-rank-{{ rank }} flair-mastery-{{ mastery }}">
+                  {% if page.text %}{{ i }} rank-{{ rank }} mastery-{{ mastery }}{% endif %}
+                </span>
+              </td>
+            {% endfor %}
+          </tr>
+          {% if mastery >= 5 %}
+            <!-- POINTS -->
+            {% for points in page.points %}
+              <tr>
+                <th> rank-{{ rank }} mastery-{{ mastery }} masteryText</th>
+                {% for i in page.flairs %}
+                  <td>
+                    <span title="{{ points }}{% if page.text %} {{ i }} rank-{{ rank }} mastery-{{ mastery }} masteryText{% endif %}"
+                          class="flair flair-{{ i }} flair-rank-{{ rank }} flair-mastery-{{ mastery }} flair-masteryText">
+                      {{ points }}{% if page.text %} {{ i }} rank-{{ rank }} mastery-{{ mastery }} masteryText{% endif %}
+                    </span>
+                  </td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
