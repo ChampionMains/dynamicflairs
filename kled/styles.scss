@@ -1,5 +1,5 @@
-$size: 28px;
-$ratio: 1.9285714285714286;
+$size: 25px;
+$ratio: 2.0;
 $masteryPad: 5px;
 $masterySize: 70px;
 $pad: 10px;
@@ -11,7 +11,7 @@ $pad: 10px;
   margin: 0 $pad 0 0;
   vertical-align: middle;
   color: #FFF;
-  background: url($flairs) repeat-y #272727 0 0 / 54px;
+  background: url($flairs) repeat-y #272727 0 0 / 50px;
   position: relative;
   z-index: 10;
   //opacity: 0.7;
@@ -110,7 +110,7 @@ $colors: #ff574d #fc30e0 #27e0d7;
   }
 }
 
-$flairNames: classickled classicskaarl sirkled;
+$flairNames: classickled classicskaarl countkled countskaarl sirkled;
 $rankNames: unranked bronze 'silver' 'gold' platinum diamond master challenger;
 $masteriesCount: 7;
 @for $i from 1 through max(length($flairNames), length($rankNames)) {
